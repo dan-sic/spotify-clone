@@ -1,5 +1,7 @@
 import { FC, ReactNode } from 'react'
 import { AppLogo } from './components/app-logo'
+import { Navigation } from './components/navigation'
+import { Separator } from '@/components/ui/separator'
 
 interface PlayerLayoutProps {
   children: ReactNode
@@ -8,9 +10,10 @@ interface PlayerLayoutProps {
 export const PlayerLayout: FC<PlayerLayoutProps> = ({ children }) => {
   return (
     <div className="w-screen h-screen">
-      <aside className="absolute h-[calc(100%-100px)] w-[200px] bg-gray-500 p-5">
+      <aside className="absolute h-[calc(100%-100px)] w-[200px] bg-gray-900 p-5 space-y-4">
         <AppLogo />
-        Sidebar
+        <Navigation />
+        <Separator className="bg-gray-500" />
       </aside>
       <main className="w-full h-[calc(100%-100px)] overflow-auto ml-[200px] bg-orange-500">
         {children}
