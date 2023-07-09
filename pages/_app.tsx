@@ -1,4 +1,4 @@
-import { PlayerLayout } from '@/components/PlayerLayout'
+import { PlayerLayout } from '@/components/player-layout/player-layout'
 import '@/styles/globals.css'
 import type { AppProps } from 'next/app'
 
