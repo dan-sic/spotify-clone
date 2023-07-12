@@ -1,7 +1,8 @@
+import { Separator } from '@/components/ui/separator'
 import { FC, ReactNode } from 'react'
 import { AppLogo } from './components/app-logo'
 import { Navigation } from './components/navigation'
-import { Separator } from '@/components/ui/separator'
+import { Playlists } from './components/playlists'
 
 interface PlayerLayoutProps {
   children: ReactNode
@@ -14,6 +15,7 @@ export const PlayerLayout: FC<PlayerLayoutProps> = ({ children }) => {
         <AppLogo />
         <Navigation />
         <Separator className="bg-gray-500" />
+        <Playlists />
       </aside>
       <main className="w-full h-[calc(100%-100px)] overflow-auto ml-[200px] bg-orange-500">
         {children}

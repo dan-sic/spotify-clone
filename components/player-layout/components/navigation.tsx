@@ -38,6 +38,13 @@ const secondaryNav = [
   },
 ]
 
+const playlists = Array(10)
+  .fill(1)
+  .map((_, i) => ({
+    id: i,
+    name: `Playlist ${i}`,
+  }))
+
 export const Navigation: FC = () => {
   return (
     <nav className="space-y-8">
