@@ -1,6 +1,6 @@
 module.exports = {
-  extends: ['next', 'prettier'],
-  plugins: ['react', '@typescript-eslint', 'prettier'],
+  extends: ['next', 'prettier', 'plugin:@typescript-eslint/recommended'],
+  plugins: ['react', '@typescript-eslint', 'prettier', 'import'],
   env: {
     browser: true,
     es2021: true,
