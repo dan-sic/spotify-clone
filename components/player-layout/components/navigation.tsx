@@ -1,11 +1,11 @@
 import Link from 'next/link'
 import { FC } from 'react'
 import {
-  MdHome,
-  MdSearch,
-  MdLibraryMusic,
   MdAdd,
   MdFavorite,
+  MdHome,
+  MdLibraryMusic,
+  MdSearch,
 } from 'react-icons/md'
 
 const primaryNav = [
@@ -37,13 +37,6 @@ const secondaryNav = [
     Icon: MdFavorite,
   },
 ]
-
-const playlists = Array(10)
-  .fill(1)
-  .map((_, i) => ({
-    id: i,
-    name: `Playlist ${i}`,
-  }))
 
 export const Navigation: FC = () => {
   return (
