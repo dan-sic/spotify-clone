@@ -2,7 +2,7 @@ import createHttpError from 'http-errors'
 import { NextApiResponse } from 'next'
 import { ZodError } from 'zod'
 
-type ErrorResponse = {
+export type ErrorResponse = {
   error: {
     message: string
     err?: unknown
