@@ -1,4 +1,4 @@
-import { AppLogo } from '@/components/player-layout/components/app-logo'
+import { AppLogo } from '@/shared/components/app-logo'
 import { FC } from 'react'
 
 export const AuthLayout: FC<React.PropsWithChildren> = ({ children }) => {

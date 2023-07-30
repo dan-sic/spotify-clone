@@ -1,6 +1,15 @@
 import axios from 'axios'
-import { ErrorResponse } from './error-handler'
+import { ErrorResponse } from '../api/error-handler'
 
+/**
+ * Returns an error message based on the provided error object.
+ * If the error is an AxiosError, it will try to extract the error message from the response data.
+ * If the error is an instance of Error, it will return a generic error message.
+ * If the error is of any other type, it will return an empty string.
+ *
+ * @param error - The error object to extract the message from.
+ * @returns The error message.
+ */
 export const getErrorMessage = (error: unknown) => {
   if (axios.isAxiosError<ErrorResponse>(error)) {
     return (

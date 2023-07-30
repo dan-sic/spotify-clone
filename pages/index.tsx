@@ -1,4 +1,4 @@
-import { PlayerLayout } from '@/components/player-layout'
+import { PlayerLayout } from '@/modules/player/components/player-layout'
 import { useUser } from '@/modules/auth/hooks/use-user'
 
 const Home = () => {

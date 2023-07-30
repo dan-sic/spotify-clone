@@ -1,8 +1,8 @@
-import { Separator } from '@/components/ui/separator'
 import { FC, ReactNode } from 'react'
-import { AppLogo } from './components/app-logo'
+import { AppLogo } from '../../../../shared/components/app-logo'
 import { Navigation } from './components/navigation'
 import { Playlists } from './components/playlists'
+import { Separator } from '@/shared/components/separator'
 
 interface PlayerLayoutProps {
   children: ReactNode

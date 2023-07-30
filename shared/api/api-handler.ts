@@ -7,6 +7,12 @@ type ApiMethodsMap = {
   [method in Methods]?: NextApiHandler
 }
 
+/**
+ * A higher-order function that returns a Next.js API route handler function.
+ * The returned function will handle incoming HTTP requests and delegate them to the appropriate API method based on the HTTP method.
+ * @param apiMethodsMap An object that maps HTTP methods to API method functions.
+ * @returns A Next.js API route handler function.
+ */
 export const apiHandler =
   (apiMethodsMap: ApiMethodsMap) =>
   async (req: NextApiRequest, res: NextApiResponse) => {

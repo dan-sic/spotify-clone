@@ -10,11 +10,15 @@ export type ErrorResponse = {
   statusCode?: number
 }
 
+/**
+ * Handles errors thrown by the application and sends an appropriate response to the client.
+ * @param err - The error that was thrown.
+ * @param res - The response object to send the error response to.
+ */
 export const errorHandler = (
   err: unknown,
   res: NextApiResponse<ErrorResponse>
 ) => {
-  console.log(err)
   if (createHttpError.isHttpError(err) && err.expose) {
     return res.status(err.statusCode).json({ error: { message: err.message } })
   }
