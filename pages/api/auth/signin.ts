@@ -14,7 +14,13 @@ const signinRoute = async (req: NextApiRequest, res: NextApiResponse<User>) => {
 
   const user = await prisma.user.findUnique({
     where: { email },
-    select: { id: true, email: true, name: true, password: true },
+    select: {
+      id: true,
+      email: true,
+      firstName: true,
+      lastName: true,
+      password: true,
+    },
   })
 
   if (!user) {
