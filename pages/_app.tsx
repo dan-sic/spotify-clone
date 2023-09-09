@@ -1,13 +1,8 @@
+import { NextPageWithLayout } from '@/shared/types'
 import '@/styles/globals.css'
-import { NextPage } from 'next'
 import type { AppProps } from 'next/app'
-import { ReactElement, ReactNode } from 'react'
 import { SWRConfig } from 'swr'
 import { SWRDevTools } from 'swr-devtools'
-
-export type NextPageWithLayout<P = unknown, IP = P> = NextPage<P, IP> & {
-  getLayout?: (page: ReactElement) => ReactNode
-}
 
 type AppPropsWithLayout = AppProps & {
   Component: NextPageWithLayout

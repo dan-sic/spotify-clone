@@ -11,6 +11,7 @@ import Image from 'next/image'
 
 export const getServerSideProps = withIronSessionSsr(async ({ req }) => {
   const user = req.session.user
+
   const artists = await prisma.artist.findMany({
     select: {
       name: true,
@@ -23,7 +24,6 @@ export const getServerSideProps = withIronSessionSsr(async ({ req }) => {
       userId: user.id,
     },
   })
-  console.log(playlistsCount)
   return {
     props: {
       artists,

@@ -11,7 +11,7 @@ export const Playlists: FC = () => {
         playlists.map(({ name, id }) => (
           <li key={id}>
             <Link
-              href={'/playlists/' + id}
+              href={'/playlist/' + id}
               className="flex items-center text-gray-500 hover:bg-gray-300 transition duration-75 hover:text-gray-900 group p-2"
             >
               <span className="ml-3">{name}</span>

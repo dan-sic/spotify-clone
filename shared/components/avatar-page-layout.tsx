@@ -2,11 +2,11 @@ import { FC } from 'react'
 
 interface AvatarPageLayoutProps {
   avatarSlot: React.ReactNode
-  detailSlot: React.ReactNode
   title: string
   subtitle: string
   children: React.ReactNode
   color: keyof typeof colorMap
+  detailSlot?: React.ReactNode
 }
 
 export const AvatarPageLayout: FC<AvatarPageLayoutProps> = ({
