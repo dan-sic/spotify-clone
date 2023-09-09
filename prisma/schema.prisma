@@ -14,7 +14,8 @@ model User {
   id        String     @id @default(uuid())
   updatedAt DateTime   @updatedAt
   createdAt DateTime   @default(now())
-  name      String?    @db.VarChar(255)
+  firstName String?    @db.VarChar(255)
+  lastName  String?    @db.VarChar(255)
   email     String     @unique @db.VarChar(255)
   password  String     @db.VarChar(255)
   playlists Playlist[]

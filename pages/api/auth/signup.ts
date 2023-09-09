@@ -25,7 +25,7 @@ const signupRoute = async (req: NextApiRequest, res: NextApiResponse<User>) => {
       email,
       password: bcrypt.hashSync(password, 10),
     },
-    select: { id: true, email: true, name: true },
+    select: { id: true, email: true, firstName: true, lastName: true },
   })
 
   req.session.user = user

@@ -31,7 +31,8 @@ const seed = async () => {
     create: {
       email: 'test@test.com',
       password: bcrypt.hashSync('test', salt),
-      name: 'Test User',
+      firstName: 'Test',
+      lastName: 'User',
     },
   })
 
