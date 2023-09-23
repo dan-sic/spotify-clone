@@ -5,9 +5,9 @@ import {
   FormControl,
   FormMessage,
   Form,
-} from '@/shared/components/form'
-import { Input } from '@/shared/components/input'
-import { authSchema } from '@/shared/validation-schemas/auth-schema'
+} from '@/components/ui/form'
+import { Input } from '@/components/ui/input'
+import { authSchema } from '@/lib/validation-schemas/auth-schema'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { FC } from 'react'
 import { useForm } from 'react-hook-form'

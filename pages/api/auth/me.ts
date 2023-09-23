@@ -1,7 +1,7 @@
-import { apiHandler } from '@/shared/api/api-handler'
-import ironSessionOptions from '@/shared/api/iron-session-options'
-import { User } from '@/shared/models/user'
-import { withProtectedRoute } from '@/shared/api/with-protected-route'
+import { apiHandler } from '@/lib/api/api-handler'
+import ironSessionOptions from '@/lib/api/iron-session-options'
+import { User } from '@/lib/models/user'
+import { withProtectedRoute } from '@/lib/api/with-protected-route'
 import { withIronSessionApiRoute } from 'iron-session/next'
 import type { NextApiRequest, NextApiResponse } from 'next'
 

@@ -1,4 +1,4 @@
-import { Icons } from '@/shared/consts/icons'
+import { Icons } from '@/lib/consts/icons'
 import Link from 'next/link'
 import { FC } from 'react'
 

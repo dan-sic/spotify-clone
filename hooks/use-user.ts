@@ -1,5 +1,5 @@
-import { httpClient } from '@/shared/api/http-client'
-import { User } from '@/shared/models/user'
+import { httpClient } from '@/lib/api/http-client'
+import { User } from '@/lib/models/user'
 import useSWRImmutable from 'swr'
 
 export const useUser = () => {

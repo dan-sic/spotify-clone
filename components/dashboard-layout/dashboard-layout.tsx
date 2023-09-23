@@ -1,14 +1,14 @@
 import { FC, ReactNode } from 'react'
-import { AppLogo } from '../../../../shared/components/app-logo'
 import { Navigation } from './components/navigation'
 import { Playlists } from './components/playlists'
-import { Separator } from '@/shared/components/separator'
+import { Separator } from '@/components/ui/separator'
+import { AppLogo } from '../app-logo'
 
-interface PlayerLayoutProps {
+interface DashboardLayoutProps {
   children: ReactNode
 }
 
-export const PlayerLayout: FC<PlayerLayoutProps> = ({ children }) => {
+export const DashboardLayout: FC<DashboardLayoutProps> = ({ children }) => {
   return (
     <div className="h-screen grid grid-cols-[15%_85%] grid-rows-[90%_10%]">
       <aside className="col-start-1 col-end-2 row-start-1 row-end-2 flex flex-col">

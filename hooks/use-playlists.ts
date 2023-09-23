@@ -1,5 +1,5 @@
-import { httpClient } from '@/shared/api/http-client'
-import { Playlist } from '@/shared/models/playlist'
+import { httpClient } from '@/lib/api/http-client'
+import { Playlist } from '@/lib/models/playlist'
 import useSWR from 'swr'
 
 export const usePlaylists = () => {

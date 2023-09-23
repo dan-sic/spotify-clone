@@ -1,5 +1,5 @@
-import { apiHandler } from '@/shared/api/api-handler'
-import ironSessionOptions from '@/shared/api/iron-session-options'
+import { apiHandler } from '@/lib/api/api-handler'
+import ironSessionOptions from '@/lib/api/iron-session-options'
 import { withIronSessionApiRoute } from 'iron-session/next'
 import type { NextApiRequest, NextApiResponse } from 'next'
 

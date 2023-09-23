@@ -1,12 +1,12 @@
-import { PlayerLayout } from '@/modules/player/components/player-layout'
-import { SongsTable } from '@/modules/player/components/songs-table/songs-table'
+import { DashboardLayout } from '@/components/dashboard-layout/dashboard-layout'
+import { SongsTable } from '@/components/songs-table/songs-table'
 import prisma from '@/prisma/db-client'
 import Avatar from '@/public/avatar.png'
-import ironSessionOptions from '@/shared/api/iron-session-options'
-import { validateSchema } from '@/shared/api/validate-schema'
-import { AvatarPageLayout } from '@/shared/components/avatar-page-layout'
+import ironSessionOptions from '@/lib/api/iron-session-options'
+import { validateSchema } from '@/lib/api/validate-schema'
+import { AvatarPageLayout } from '@/components/avatar-page-layout'
 // import { Playlist } from '@/shared/models/playlist'
-import { NextPageWithLayout } from '@/shared/types'
+import { NextPageWithLayout } from '@/lib/types'
 import { withIronSessionSsr } from 'iron-session/next'
 import { InferGetServerSidePropsType } from 'next'
 import Image from 'next/image'
@@ -104,7 +104,7 @@ const Playlist: NextPageWithLayout<
 }
 
 Playlist.getLayout = (page: React.ReactNode) => (
-  <PlayerLayout>{page}</PlayerLayout>
+  <DashboardLayout>{page}</DashboardLayout>
 )
 
 export default Playlist

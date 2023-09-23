@@ -1,4 +1,4 @@
-import { usePlaylists } from '@/modules/player/hooks/use-playlists'
+import { usePlaylists } from '@/hooks/use-playlists'
 import Link from 'next/link'
 import { FC } from 'react'
 

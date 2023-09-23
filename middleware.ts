@@ -1,7 +1,7 @@
 import { getIronSession } from 'iron-session/edge'
 import { NextResponse } from 'next/server'
 import type { NextRequest } from 'next/server'
-import ironSessionOptions from './shared/api/iron-session-options'
+import ironSessionOptions from './lib/api/iron-session-options'
 
 const authRoutes = ['/signup', '/signin']
 

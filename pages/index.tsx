@@ -1,10 +1,10 @@
-import { useUser } from '@/modules/auth/hooks/use-user'
-import { PlayerLayout } from '@/modules/player/components/player-layout'
+import { useUser } from '@/hooks/use-user'
+import { DashboardLayout } from '@/components/dashboard-layout/dashboard-layout'
 import prisma from '@/prisma/db-client'
 import Avatar from '@/public/avatar.png'
-import ironSessionOptions from '@/shared/api/iron-session-options'
-import { AvatarPageLayout } from '@/shared/components/avatar-page-layout'
-import { Card, CardContent, CardFooter } from '@/shared/components/card'
+import ironSessionOptions from '@/lib/api/iron-session-options'
+import { AvatarPageLayout } from '@/components/avatar-page-layout'
+import { Card, CardContent, CardFooter } from '@/components/ui/card'
 import { withIronSessionSsr } from 'iron-session/next'
 import type { InferGetServerSidePropsType } from 'next'
 import Image from 'next/image'
@@ -89,6 +89,8 @@ const Home = ({
   )
 }
 
-Home.getLayout = (page: React.ReactNode) => <PlayerLayout>{page}</PlayerLayout>
+Home.getLayout = (page: React.ReactNode) => (
+  <DashboardLayout>{page}</DashboardLayout>
+)
 
 export default Home

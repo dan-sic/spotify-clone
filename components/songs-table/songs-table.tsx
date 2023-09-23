@@ -5,10 +5,9 @@ import {
   TableHead,
   TableHeader,
   TableRow,
-} from '@/shared/components/table'
+} from '@/components/ui/table'
 import { Song as SongModel } from '@prisma/client'
 import {
-  ColumnDef,
   createColumnHelper,
   flexRender,
   getCoreRowModel,

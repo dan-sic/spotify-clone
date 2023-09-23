@@ -1,16 +1,16 @@
-import { Button } from '@/shared/components/button'
+import { Button } from '@/components/ui/button'
 import {
   Card,
   CardContent,
   CardFooter,
   CardHeader,
   CardTitle,
-} from '@/shared/components/card'
-import { FormErrorMessage } from '@/shared/components/form'
-import { authSchema } from '@/shared/validation-schemas/auth-schema'
-import { AuthForm } from '@/modules/auth/components/auth-form'
-import { AuthLayout } from '@/modules/auth/components/auth-layout'
-import { useSignup } from '@/modules/auth/hooks/use-signup'
+} from '@/components/ui/card'
+import { FormErrorMessage } from '@/components/ui/form'
+import { authSchema } from '@/lib/validation-schemas/auth-schema'
+import { AuthForm } from '@/components/auth-form'
+import { AuthLayout } from '@/components/auth-layout'
+import { useSignup } from '@/hooks/use-signup'
 import { z } from 'zod'
 
 const SignupPage = () => {
