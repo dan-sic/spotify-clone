@@ -33,7 +33,9 @@ export const AvatarPageLayout: FC<AvatarPageLayoutProps> = ({
           </div>
         </div>
       </div>
-      <div className="p-10 flex-2 bg-black bg-opacity-10">{children}</div>
+      <div className="p-10 flex-2 bg-black bg-opacity-10 overflow-y-auto">
+        {children}
+      </div>
     </div>
   )
 }

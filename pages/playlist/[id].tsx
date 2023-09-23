@@ -1,17 +1,39 @@
-import { AvatarPageLayout } from '@/shared/components/avatar-page-layout'
-import Image from 'next/image'
-import Avatar from '@/public/avatar.png'
-import { NextPageWithLayout } from '@/shared/types'
-import { GetServerSideProps, InferGetServerSidePropsType } from 'next'
-import { validateSchema } from '@/shared/api/validate-schema'
-import { z } from 'zod'
-import prisma from '@/prisma/db-client'
 import { PlayerLayout } from '@/modules/player/components/player-layout'
-import { Playlist } from '@/shared/models/playlist'
+import { SongsTable } from '@/modules/player/components/songs-table/songs-table'
+import prisma from '@/prisma/db-client'
+import Avatar from '@/public/avatar.png'
+import ironSessionOptions from '@/shared/api/iron-session-options'
+import { validateSchema } from '@/shared/api/validate-schema'
+import { AvatarPageLayout } from '@/shared/components/avatar-page-layout'
+// import { Playlist } from '@/shared/models/playlist'
+import { NextPageWithLayout } from '@/shared/types'
+import { withIronSessionSsr } from 'iron-session/next'
+import { InferGetServerSidePropsType } from 'next'
+import Image from 'next/image'
+import { z } from 'zod'
 
-export const getServerSideProps: GetServerSideProps<{
-  playlist: Playlist
-}> = async ({ query }) => {
+const playlistSchema = z.object({
+  id: z.string(),
+  name: z.string(),
+  songs: z.array(
+    z.object({
+      id: z.string(),
+      name: z.string(),
+      duration: z.number(),
+      createdAt: z.date().transform((date) => date.toISOString()),
+      artist: z.object({
+        name: z.string(),
+        id: z.string(),
+      }),
+    })
+  ),
+})
+
+export const getServerSideProps = withIronSessionSsr<{
+  playlist: z.infer<typeof playlistSchema>
+}>(async ({ query, req }) => {
+  const user = req.session.user
+
   const { id } = validateSchema(
     query,
     z.object({
@@ -22,10 +44,25 @@ export const getServerSideProps: GetServerSideProps<{
   const playlist = await prisma.playlist.findFirst({
     where: {
       id,
+      userId: user.id,
     },
     select: {
-      name: true,
       id: true,
+      name: true,
+      songs: {
+        select: {
+          createdAt: true,
+          duration: true,
+          id: true,
+          name: true,
+          artist: {
+            select: {
+              name: true,
+              id: true,
+            },
+          },
+        },
+      },
     },
   })
 
@@ -35,12 +72,14 @@ export const getServerSideProps: GetServerSideProps<{
     }
   }
 
+  const dto = validateSchema(playlist, playlistSchema)
+
   return {
     props: {
-      playlist,
+      playlist: dto,
     },
   }
-}
+}, ironSessionOptions)
 
 const Playlist: NextPageWithLayout<
   InferGetServerSidePropsType<typeof getServerSideProps>
@@ -59,7 +98,7 @@ const Playlist: NextPageWithLayout<
         />
       }
     >
-      Songs
+      <SongsTable songs={playlist?.songs ?? []} />
     </AvatarPageLayout>
   )
 }
