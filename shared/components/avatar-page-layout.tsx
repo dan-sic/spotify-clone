@@ -19,7 +19,7 @@ export const AvatarPageLayout: FC<AvatarPageLayoutProps> = ({
 }) => {
   return (
     <div
-      className={`flex flex-col bg-gradient-to-b h-screen from-${color}-500 from-15% via-${color}-700 via-45% to-black to-75%`}
+      className={`flex flex-col bg-gradient-to-b h-screen from-${color}-500 from-15% via-${color}-700 via-45% to-black to-75% overflow-y-auto scrollbar-thumb-gray-800 scrollbar-track-gray-600 scrollbar-thin`}
     >
       <div className="flex-1">
         <div className="flex space-x-5 items-end p-10">
@@ -33,9 +33,7 @@ export const AvatarPageLayout: FC<AvatarPageLayoutProps> = ({
           </div>
         </div>
       </div>
-      <div className="p-10 flex-2 bg-black bg-opacity-10 overflow-y-auto">
-        {children}
-      </div>
+      <div className="p-10 flex-2 bg-black bg-opacity-10">{children}</div>
     </div>
   )
 }

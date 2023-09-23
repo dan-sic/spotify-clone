@@ -19,7 +19,7 @@ export const PlayerLayout: FC<PlayerLayoutProps> = ({ children }) => {
           <Navigation />
           <Separator className="bg-gray-500" />
         </div>
-        <div className="flex-2 overflow-y-auto">
+        <div className="flex-2 overflow-y-auto scrollbar-thumb-gray-800 scrollbar-track-gray-600 scrollbar-thin">
           <Playlists />
         </div>
       </aside>
