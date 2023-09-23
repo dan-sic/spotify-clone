@@ -1,40 +1,34 @@
+import { Icons } from '@/shared/consts/icons'
 import Link from 'next/link'
 import { FC } from 'react'
-import {
-  MdAdd,
-  MdFavorite,
-  MdHome,
-  MdLibraryMusic,
-  MdSearch,
-} from 'react-icons/md'
 
 const primaryNav = [
   {
     label: 'Home',
     route: '/',
-    Icon: MdHome,
+    Icon: Icons.Home,
   },
   {
     label: 'Search',
     route: '/search',
-    Icon: MdSearch,
+    Icon: Icons.Search,
   },
   {
     label: 'Home',
     route: '/library',
-    Icon: MdLibraryMusic,
+    Icon: Icons.LibraryMusic,
   },
 ]
 const secondaryNav = [
   {
     label: 'Create Playlist',
     route: '/create-playlist',
-    Icon: MdAdd,
+    Icon: Icons.Add,
   },
   {
     label: 'Liked Songs',
     route: '/liked-songs',
-    Icon: MdFavorite,
+    Icon: Icons.Favorite,
   },
 ]
 
