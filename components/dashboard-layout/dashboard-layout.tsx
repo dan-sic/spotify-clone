@@ -1,16 +1,28 @@
+import { Player } from '@/components/player/player'
+import { Separator } from '@/components/ui/separator'
+import { usePlayerStore } from '@/lib/store/player-store'
+import clsx from 'clsx'
 import { FC, ReactNode } from 'react'
+import { AppLogo } from '../app-logo'
 import { Navigation } from './components/navigation'
 import { Playlists } from './components/playlists'
-import { Separator } from '@/components/ui/separator'
-import { AppLogo } from '../app-logo'
 
 interface DashboardLayoutProps {
   children: ReactNode
 }
 
 export const DashboardLayout: FC<DashboardLayoutProps> = ({ children }) => {
+  const isCurrentSong = usePlayerStore(
+    (state) => !!state.songs[state.currentSongIndex]
+  )
+
   return (
-    <div className="h-screen grid grid-cols-[15%_85%] grid-rows-[90%_10%]">
+    <div
+      className={clsx(
+        'h-screen grid grid-cols-[15%_85%] grid-rows-[90%_10%]',
+        isCurrentSong ? 'grid-rows-[90%_10%]' : 'grid-rows-[100%]'
+      )}
+    >
       <aside className="col-start-1 col-end-2 row-start-1 row-end-2 flex flex-col">
         <div className="flex-1 py-2 space-y-4">
           <div className="px-3">
@@ -26,9 +38,11 @@ export const DashboardLayout: FC<DashboardLayoutProps> = ({ children }) => {
       <main className="col-start-2 col-end-3 row-start-1 row-end-2">
         {children}
       </main>
-      <footer className="col-start-1 col-end-3 row-start-2 row-end-3 bg-blue-500">
-        Footer
-      </footer>
+      {isCurrentSong && (
+        <footer className="col-start-1 col-end-3 row-start-2 row-end-3">
+          <Player />
+        </footer>
+      )}
     </div>
   )
 }

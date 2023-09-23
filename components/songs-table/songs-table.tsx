@@ -6,7 +6,8 @@ import {
   TableHeader,
   TableRow,
 } from '@/components/ui/table'
-import { Song as SongModel } from '@prisma/client'
+import { Song } from '@/lib/models/song'
+import { formatSecondsToTime } from '@/lib/utils/format-seconds-to-time'
 import {
   createColumnHelper,
   flexRender,
@@ -14,9 +15,7 @@ import {
   useReactTable,
 } from '@tanstack/react-table'
 import { FC } from 'react'
-import { formatDate, formatSecondsToTime } from './utils'
-
-type Song = Pick<SongModel, 'id' | 'name' | 'duration'> & { createdAt: string }
+import { formatDate } from './utils'
 
 interface SongsTableProps {
   songs: Song[]
@@ -33,7 +32,14 @@ const columns = [
   }),
   columnHelper.accessor('name', {
     header: () => <span>Title</span>,
-    cell: (data) => <span className="text-gray-100">{data.getValue()}</span>,
+    cell: (data) => (
+      <div className="flex flex-col space-y-1">
+        <span className="text-gray-100">{data.getValue()}</span>
+        <span className="text-gray-300 text-xs">
+          {data.row.original.artist.name}
+        </span>
+      </div>
+    ),
     size: 500,
   }),
   columnHelper.accessor('createdAt', {

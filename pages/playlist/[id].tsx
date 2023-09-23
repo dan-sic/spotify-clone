@@ -11,6 +11,8 @@ import { withIronSessionSsr } from 'iron-session/next'
 import { InferGetServerSidePropsType } from 'next'
 import Image from 'next/image'
 import { z } from 'zod'
+import { Icons } from '@/lib/consts/icons'
+import { usePlayerStore } from '@/lib/store/player-store'
 
 const playlistSchema = z.object({
   id: z.string(),
@@ -20,6 +22,7 @@ const playlistSchema = z.object({
       id: z.string(),
       name: z.string(),
       duration: z.number(),
+      url: z.string(),
       createdAt: z.date().transform((date) => date.toISOString()),
       artist: z.object({
         name: z.string(),
@@ -55,6 +58,7 @@ export const getServerSideProps = withIronSessionSsr<{
           duration: true,
           id: true,
           name: true,
+          url: true,
           artist: {
             select: {
               name: true,
@@ -84,6 +88,13 @@ export const getServerSideProps = withIronSessionSsr<{
 const Playlist: NextPageWithLayout<
   InferGetServerSidePropsType<typeof getServerSideProps>
 > = ({ playlist }) => {
+  const { setSongs, setCurrentSongIndex } = usePlayerStore()
+
+  const handlePlayClick = () => {
+    setSongs(playlist.songs)
+    setCurrentSongIndex(0)
+  }
+
   return (
     <AvatarPageLayout
       color="gray"
@@ -98,6 +109,9 @@ const Playlist: NextPageWithLayout<
         />
       }
     >
+      <button onClick={handlePlayClick}>
+        <Icons.PlayCircleFilled className="w-10 h-10 fill-green-500 hover:fill-green-700" />
+      </button>
       <SongsTable songs={playlist?.songs ?? []} />
     </AvatarPageLayout>
   )

@@ -4,6 +4,14 @@ import {
   MdHome,
   MdLibraryMusic,
   MdSearch,
+  MdPlayCircleFilled,
+  MdPauseCircleFilled,
+  MdSkipPrevious,
+  MdSkipNext,
+  MdVolumeDown,
+  MdSignalWifiConnectedNoInternet4,
+  MdShuffle,
+  MdRepeat,
 } from 'react-icons/md'
 
 export const Icons = {
@@ -12,4 +20,12 @@ export const Icons = {
   Home: MdHome,
   LibraryMusic: MdLibraryMusic,
   Search: MdSearch,
+  PlayCircleFilled: MdPlayCircleFilled,
+  PauseCircleFilled: MdPauseCircleFilled,
+  SkipPrevious: MdSkipPrevious,
+  SkipNext: MdSkipNext,
+  Speaker: MdVolumeDown,
+  NoInternet: MdSignalWifiConnectedNoInternet4,
+  Shuffle: MdShuffle,
+  Repeat: MdRepeat,
 }
