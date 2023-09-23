@@ -46,7 +46,7 @@ export const Navigation: FC = () => {
           <li key={label}>
             <Link
               href={route}
-              className="flex items-center text-gray-500 hover:bg-gray-300 transition duration-75 hover:text-gray-900 group p-2"
+              className="flex items-center text-gray-500 hover:bg-gray-300 transition duration-75 hover:text-gray-900 group p-2 pl-5"
             >
               <Icon className="w-5 h-5 text-gray-500 transition duration-75 group-hover:text-gray-900" />
               <span className="ml-3">{label}</span>
@@ -59,7 +59,7 @@ export const Navigation: FC = () => {
           <li key={label}>
             <Link
               href={route}
-              className="flex items-center text-gray-500 hover:bg-gray-300 transition duration-75 hover:text-gray-900 group p-2"
+              className="flex items-center text-gray-500 hover:bg-gray-300 transition duration-75 hover:text-gray-900 group p-2 pl-5"
             >
               <Icon className="w-5 h-5 text-gray-500 transition duration-75 group-hover:text-gray-900" />
               <span className="ml-3">{label}</span>
